@@ -3,120 +3,383 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio | Andrea Lorenzo Ruiz</title>
+    <title>Andrea Lorenzo Ruiz</title>
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet"/>
     <style>
-        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; color: #333; max-width: 900px; margin: 0 auto; padding: 20px; background: #f0f2f5; }
-        header { text-align: center; padding: 60px 0; }
-        h1 { color: #1a1a1a; margin-bottom: 5px; font-size: 2.5rem; }
-        .intro { font-size: 1.1em; color: #555; margin-bottom: 40px; }
-        
-        .project-card { background: white; border-radius: 15px; padding: 30px; margin-bottom: 50px; box-shadow: 0 10px 30px rgba(0,0,0,0.08); border: 1px solid #e1e4e8; }
-        .project-card h2 { margin-top: 0; font-size: 1.8rem; margin-bottom: 10px; }
-        
-        .tags { display: flex; gap: 10px; margin: 15px 0; flex-wrap: wrap; }
-        .tag { background: #007bff1a; color: #007bff; padding: 5px 15px; border-radius: 25px; font-size: 0.85em; font-weight: 600; text-transform: uppercase; }
-        
-        .description { margin: 20px 0; color: #444; font-size: 1.05rem; }
-        
-        .iframe-container { position: relative; width: 100%; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 10px; border: 1px solid #ddd; background: #fff; }
-        .iframe-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; }
-        
-        .links { margin-top: 25px; display: flex; gap: 15px; justify-content: center; }
-        
-        /* --- ESTILOS DE BOTONES PERSONALIZADOS --- */
-        .btn { text-decoration: none; padding: 12px 25px; border-radius: 8px; font-weight: bold; transition: all 0.3s ease; display: inline-block; }
-        .btn:hover { transform: translateY(-2px); box-shadow: 0 5px 15px rgba(0,0,0,0.2); opacity: 0.9; }
+        :root {
+            --cream:  #f7f3ee;
+            --cream2: #ede7de;
+            --cream3: #ddd4c8;
+            --ink:    #1c1612;
+            --ink2:   #5a4e44;
+            --ink3:   #9a8e84;
+            --rose:   #c8604a;
+            --rose2:  #e8806a;
+            --rose3:  #f4d0c8;
+        }
 
-        .btn-codepen { background: #000000; color: white; } /* Negro CodePen */
-        .btn-react { background: #61dafb; color: #000; }     /* Celeste React */
-        .btn-unreal { background: #313131; color: white; border: 1px solid #ffffff33; } /* Gris UE5 */
-        
-        footer { text-align: center; padding: 60px 0; border-top: 1px solid #d1d5da; margin-top: 40px; }
-        .social-link { color: #007bff; text-decoration: none; font-weight: bold; }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; }
+
+        body {
+            background: var(--cream);
+            color: var(--ink);
+            font-family: 'Instrument Sans', sans-serif;
+            font-size: 15px;
+            line-height: 1.65;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 24px 80px;
+        }
+
+        /* ── NAV ── */
+        nav {
+            position: sticky; top: 0; z-index: 50;
+            background: rgba(247,243,238,0.92);
+            backdrop-filter: blur(16px);
+            border-bottom: 1px solid var(--cream3);
+            margin: 0 -24px;
+            padding: 0 24px;
+        }
+        .nav-inner {
+            max-width: 900px; margin: 0 auto;
+            display: flex; align-items: center; justify-content: space-between;
+            height: 52px;
+        }
+        .nav-logo {
+            font-family: 'Instrument Serif', serif;
+            font-size: 17px; color: var(--ink);
+            text-decoration: none;
+        }
+        .nav-logo em { font-style: italic; color: var(--rose); }
+        .nav-links { display: flex; gap: 28px; }
+        .nav-link {
+            font-size: 12px; font-weight: 600; letter-spacing: 0.08em;
+            color: var(--ink3); text-decoration: none;
+            text-transform: uppercase; transition: color 0.2s;
+        }
+        .nav-link:hover { color: var(--rose); }
+
+        /* ── HEADER ── */
+        header {
+            padding: 80px 0 60px;
+            border-bottom: 1px solid var(--cream3);
+            margin-bottom: 0;
+        }
+        header h1 {
+            font-family: 'Instrument Serif', serif;
+            font-size: clamp(48px, 8vw, 80px);
+            font-weight: 400;
+            line-height: 0.95;
+            letter-spacing: -0.02em;
+            color: var(--ink);
+            margin-bottom: 16px;
+        }
+        header h1 em { font-style: italic; color: var(--rose); }
+        .intro {
+            font-size: 13px; font-weight: 600;
+            letter-spacing: 0.15em; text-transform: uppercase;
+            color: var(--ink3);
+            display: flex; align-items: center; gap: 10px;
+        }
+        .intro::before { content:''; width:28px; height:1px; background:var(--rose); }
+
+        /* ── SECTION LABEL ── */
+        .sec-row {
+            display: flex; align-items: baseline; justify-content: space-between;
+            border-bottom: 1px solid var(--cream3);
+            padding: 48px 0 14px; margin-bottom: 36px;
+        }
+        .sec-title {
+            font-family: 'Instrument Serif', serif;
+            font-size: 26px; font-style: italic; color: var(--ink);
+        }
+        .sec-num { font-size: 11px; color: var(--ink3); letter-spacing: 0.15em; }
+
+        /* ── SOBRE MÍ ── */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 1px;
+            background: var(--cream3);
+            border: 1px solid var(--cream3);
+            margin-bottom: 48px;
+        }
+        .about-cell { background: var(--cream); padding: 24px 22px; }
+        .about-cell.dark { background: var(--ink); }
+        .about-cell.wide { grid-column: 1 / -1; border-top: 1px solid var(--cream3); }
+
+        .cell-label {
+            font-size: 10px; font-weight: 600; letter-spacing: 0.2em;
+            text-transform: uppercase; color: var(--ink3); margin-bottom: 14px;
+        }
+        .about-cell.dark .cell-label { color: rgba(247,243,238,0.35); }
+
+        .cell-big {
+            font-family: 'Instrument Serif', serif;
+            font-size: 38px; font-style: italic;
+            color: var(--cream); line-height: 1.05; margin-bottom: 6px;
+        }
+        .cell-sub { font-size: 12px; color: rgba(247,243,238,0.45); line-height: 1.6; }
+
+        .info-list { list-style: none; }
+        .info-list li {
+            font-size: 13px; color: var(--ink2);
+            padding: 6px 0; border-bottom: 1px solid var(--cream2);
+            display: flex; align-items: flex-start; gap: 10px; line-height: 1.5;
+        }
+        .info-list li:last-child { border-bottom: none; }
+        .info-list li::before { content: '—'; color: var(--rose); font-size: 11px; flex-shrink: 0; margin-top: 2px; }
+
+        .bio-text {
+            font-size: 14px; color: var(--ink2);
+            line-height: 1.9; max-width: 680px;
+        }
+        .bio-text strong { color: var(--ink); font-weight: 600; }
+
+        /* ── PROJECT CARDS ── */
+        .project-card {
+            margin-bottom: 0;
+            padding: 32px 0;
+            border-top: 1px solid var(--cream3);
+        }
+        .project-card:last-child { border-bottom: 1px solid var(--cream3); }
+
+        .proj-num {
+            font-family: 'Instrument Serif', serif;
+            font-size: 13px; font-style: italic;
+            color: var(--ink3); margin-bottom: 6px;
+        }
+
+        .project-card h2 {
+            font-family: 'Instrument Serif', serif;
+            font-size: 32px; font-weight: 400;
+            letter-spacing: -0.01em; margin-bottom: 10px;
+            color: var(--ink) !important;
+        }
+
+        .tags { display: flex; gap: 6px; margin: 12px 0 20px; flex-wrap: wrap; }
+        .tag {
+            background: transparent; color: var(--ink3);
+            padding: 4px 10px; border: 1px solid var(--cream3);
+            font-size: 10px; font-weight: 600;
+            text-transform: uppercase; letter-spacing: 0.08em;
+        }
+
+        .description {
+            margin: 0 0 20px; color: var(--ink2);
+            font-size: 14px; line-height: 1.85; max-width: 580px;
+        }
+
+        .iframe-container {
+            position: relative; width: 100%;
+            padding-bottom: 56.25%; height: 0; overflow: hidden;
+            border: 1px solid var(--cream3);
+            background: var(--cream2); margin-bottom: 20px;
+        }
+        .iframe-container iframe {
+            position: absolute; top:0; left:0;
+            width:100%; height:100%; border:0;
+        }
+
+        .links { display: flex; gap: 10px; flex-wrap: wrap; }
+        .btn {
+            text-decoration: none; padding: 10px 22px;
+            font-family: 'Instrument Sans', sans-serif;
+            font-size: 12px; font-weight: 600;
+            letter-spacing: 0.08em; text-transform: uppercase;
+            transition: all 0.2s ease;
+            display: inline-flex; align-items: center; gap: 6px;
+        }
+        .btn:hover { transform: translateY(-2px); }
+
+        .btn-codepen { background: var(--ink); color: var(--cream); border: 1px solid var(--ink); }
+        .btn-codepen:hover { background: var(--rose); border-color: var(--rose); }
+
+        .btn-react { background: transparent; color: var(--ink2); border: 1px solid var(--cream3); }
+        .btn-react:hover { border-color: var(--ink2); color: var(--ink); }
+
+        .btn-unreal { background: var(--ink); color: var(--cream); border: 1px solid var(--ink); }
+        .btn-unreal:hover { background: var(--rose); border-color: var(--rose); }
+
+        /* ── FOOTER ── */
+        footer {
+            background: var(--ink);
+            margin: 80px -24px 0;
+            padding: 56px 40px 40px;
+        }
+        .footer-headline {
+            font-family: 'Instrument Serif', serif;
+            font-size: clamp(28px, 4vw, 48px);
+            font-style: italic; color: var(--cream);
+            line-height: 1.1; margin-bottom: 24px;
+        }
+        .footer-headline em { color: var(--rose2); }
+        .footer-bottom {
+            font-size: 11px; color: rgba(247,243,238,0.25);
+            letter-spacing: 0.08em;
+        }
+        .social-link {
+            color: var(--cream); text-decoration: none; font-weight: 600;
+            border-bottom: 1px solid rgba(247,243,238,0.2);
+            transition: all 0.2s; font-size: 12px;
+            letter-spacing: 0.08em; text-transform: uppercase;
+        }
+        .social-link:hover { border-color: var(--rose2); color: var(--rose2); }
+
+        @keyframes fadeUp { from{opacity:0;transform:translateY(14px)} to{opacity:1;transform:translateY(0)} }
+        header  { animation: fadeUp 0.6s ease forwards; }
+        .about-grid { animation: fadeUp 0.6s ease .1s forwards; opacity:0; }
+        .project-card:nth-child(1) { animation: fadeUp 0.6s ease .15s forwards; opacity:0; }
+        .project-card:nth-child(2) { animation: fadeUp 0.6s ease .25s forwards; opacity:0; }
+        .project-card:nth-child(3) { animation: fadeUp 0.6s ease .35s forwards; opacity:0; }
+
+        @media(max-width:600px){
+            .about-grid { grid-template-columns: 1fr; }
+            .about-cell.wide { grid-column: 1; }
+            nav .nav-links { display: none; }
+        }
     </style>
 </head>
 <body>
 
+<nav>
+  <div class="nav-inner">
+    <a href="#" class="nav-logo">Andrea <em>Lorenzo</em> Ruiz</a>
+    <div class="nav-links">
+      <a href="#sobre-mi" class="nav-link">Sobre mí</a>
+      <a href="#proyectos" class="nav-link">Proyectos</a>
+      <a href="mailto:andrealorenruiz@gmail.com" class="nav-link">Contacto</a>
+    </div>
+  </div>
+</nav>
+
 <header>
-    <h1>Andrea Lorenzo Ruiz</h1>
-    <p class="intro">Desarrolladora Frontend | Creatividad & Código</p>
+    <h1>Andrea<br><em>Lorenzo</em> Ruiz</h1>
+    <p class="intro">Desarrolladora Frontend · Creatividad &amp; Código</p>
 </header>
 
+<!-- SOBRE MÍ -->
+<section id="sobre-mi">
+    <div class="sec-row">
+        <span class="sec-title">Sobre mí</span>
+        <span class="sec-num">01 / 02</span>
+    </div>
+
+    <div class="about-grid">
+
+        <div class="about-cell dark">
+            <div class="cell-label">Quién soy</div>
+            <div class="cell-big">22<br>años</div>
+            <div class="cell-sub">Salamanca · Zamora<br>Escuela Politécnica de Zamora</div>
+        </div>
+
+        <div class="about-cell">
+            <div class="cell-label">Estudios</div>
+            <ul class="info-list">
+                <li>Grado en Desarrollo de Aplicaciones 3D Interactivas y Videojuegos</li>
+                <li>Escuela Politécnica Superior de Zamora (USAL)</li>
+            </ul>
+        </div>
+
+        <div class="about-cell">
+            <div class="cell-label">Herramientas</div>
+            <ul class="info-list">
+                <li>Unreal Engine 5 · Blueprints</li>
+                <li>React · JavaScript · CSS</li>
+                <li>Blender · Modelado 3D</li>
+            </ul>
+        </div>
+
+        <div class="about-cell wide">
+            <div class="cell-label">Bio</div>
+            <p class="bio-text">
+                Salmantina, 22 años. Estudio Desarrollo de Aplicaciones 3D Interactivas y Videojuegos en la Escuela Politécnica de Zamora. Me apasiona la programación en Unreal Engine 5, los Blueprints y el modelado 3D en Blender — me gusta que el código y el arte funcionen juntos. Mi objetivo es trabajar como <strong>programadora de videojuegos</strong> en un equipo donde pueda seguir aprendiendo y crear cosas que de verdad importen a quien las juega.
+            </p>
+        </div>
+
+    </div>
+</section>
+
+<!-- PROYECTOS -->
 <section id="proyectos">
+    <div class="sec-row">
+        <span class="sec-title">Proyectos</span>
+        <span class="sec-num">02 / 02</span>
+    </div>
+
     <div class="project-card">
-        <h2 style="color: #000;">The Unsubscribe Quest</h2>
+        <div class="proj-num">01.</div>
+        <h2>The Unsubscribe Quest</h2>
         <div class="tags">
             <span class="tag">Vanilla JS</span>
             <span class="tag">Dark UX</span>
             <span class="tag">CSS Animation</span>
         </div>
         <p class="description">Un reto interactivo que pone a prueba la paciencia del usuario mediante patrones de diseño frustrantes y lógica de JavaScript avanzada. ¿Podrás cancelar la suscripción?</p>
-        
         <div class="iframe-container">
-            <iframe src="https://codepen.io/Andrea-Lorenzo-Ruiz/embed/VYKPKyy?default-tab=result&theme-id=light" 
-                    loading="lazy" allowtransparency="true" allowfullscreen="true">
-            </iframe>
+            <iframe src="https://codepen.io/Andrea-Lorenzo-Ruiz/embed/VYKPKyy?default-tab=result&theme-id=light"
+                    loading="lazy" allowtransparency="true" allowfullscreen="true"></iframe>
         </div>
-
         <div class="links">
-            <a href="https://codepen.io/Andrea-Lorenzo-Ruiz/pen/VYKPKyy" class="btn btn-codepen" target="_blank">Jugar en CodePen</a>
+            <a href="https://codepen.io/Andrea-Lorenzo-Ruiz/pen/VYKPKyy" class="btn btn-codepen" target="_blank">Jugar en CodePen →</a>
         </div>
     </div>
 
     <div class="project-card">
-        <h2 style="color: #00d8ff;">La Cueva de Salamanca</h2>
+        <div class="proj-num">02.</div>
+        <h2>La Cueva de Salamanca</h2>
         <div class="tags">
             <span class="tag">React</span>
             <span class="tag">Interactive Storytelling</span>
         </div>
         <p class="description">Novela visual interactiva basada en la leyenda salmantina de la Cueva del Diablo. Desarrollada en React con narrativa ramificada y múltiples finales.</p>
-        
-        <div class="iframe-container" style="padding-bottom: 65%;"> 
+        <div class="iframe-container" style="padding-bottom:65%;">
             <iframe src="https://codesandbox.io/embed/x4q4sn?view=preview&module=%2Fsrc%2FApp.js&hidenavigation=1"
                 title="la cueva de salamanca"
                 allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
-                sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts">
-            </iframe>
+                sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"></iframe>
         </div>
-
         <div class="links">
-            <a href="https://codesandbox.io/s/x4q4sn" class="btn btn-react" target="_blank">Explorar en CodeSandbox</a>
+            <a href="https://codesandbox.io/s/x4q4sn" class="btn btn-react" target="_blank">Explorar en CodeSandbox →</a>
         </div>
     </div>
 
-<div class="project-card">
-        <h2 style="color: #313131;">Heretic-Tac</h2>
+    <div class="project-card">
+        <div class="proj-num">03.</div>
+        <h2>Heretic-Tac</h2>
         <div class="tags">
             <span class="tag">Unreal Engine 5</span>
             <span class="tag">Puzzle</span>
             <span class="tag">Medieval Setting</span>
             <span class="tag">Trabajo Grupal</span>
         </div>
-        
         <p class="description">
-            Juego de puzles ambientado en la Edad Media donde deberás destapar a una peligrosa secta bajo una presión constante. 
+            Juego de puzles ambientado en la Edad Media donde deberás destapar a una peligrosa secta bajo una presión constante.
             <strong>El tiempo no espera por nadie, ¿y tú?</strong>
         </p>
-
         <div class="iframe-container">
-            <img src="TrailerHeretictac.gif" 
-                 alt="Preview de Heretic-Tac" 
-                 style="width: 100%; height: 100%; object-fit: cover; position: absolute; top: 0; left: 0;">
+            <img src="TrailerHeretictac.gif" alt="Preview de Heretic-Tac"
+                 style="width:100%;height:100%;object-fit:cover;position:absolute;top:0;left:0;">
         </div>
-
-        <p class="description" style="font-size: 0.9em; color: #666; font-style: italic;">
-            *Proyecto desarrollado en equipo. Mi rol principal: Programación de mecanicas, personajes e interfaces en Unreal Engine. Por respeto a la autoría grupal, el trailer completo está disponible bajo petición.
+        <p class="description" style="font-size:13px;color:var(--ink3);font-style:italic;margin-top:-8px;">
+            *Proyecto desarrollado en equipo. Mi rol principal: Programación de mecánicas, personajes e interfaces en Unreal Engine. Trailer completo disponible bajo petición.
         </p>
-
         <div class="links">
-            <a href="mailto:andrealorenruiz@gmail.com?subject=Interés en Heretic-Tac" class="btn btn-unreal">Contactar para detalles</a>
+            <a href="mailto:andrealorenruiz@gmail.com?subject=Interés en Heretic-Tac" class="btn btn-unreal">Contactar →</a>
         </div>
     </div>
+
 </section>
 
 <footer>
-    <p>© 2026 - Andrea Lorenzo Ruiz</p>
-    <p>Conecta conmigo en <a href="https://github.com/Andrea-Lorenzo-Ruiz" class="social-link" target="_blank">GitHub</a></p>
+    <p class="footer-headline">¿Hacemos algo<br><em>interesante</em> juntos?</p>
+    <p class="footer-bottom">
+        © 2026 Andrea Lorenzo Ruiz &nbsp;·&nbsp;
+        <a href="https://github.com/Andrea-Lorenzo-Ruiz" class="social-link" target="_blank">GitHub</a>
+        &nbsp;·&nbsp;
+        <a href="mailto:andrealorenruiz@gmail.com" class="social-link">andrealorenruiz@gmail.com</a>
+    </p>
 </footer>
 
 </body>
