@@ -3,60 +3,88 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio de [Tu Nombre]</title>
+    <title>Portfolio de Andrea Lorenzo Ruiz</title>
     <style>
-        body { font-family: 'Segoe UI', sans-serif; line-height: 1.6; color: #333; max-width: 800px; margin: 0 auto; padding: 20px; background: #f4f4f9; }
-        header { text-align: center; padding: 40px 0; }
-        .project-card { background: white; border-radius: 8px; padding: 20px; margin-bottom: 30px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
-        .project-card h2 { margin-top: 0; color: #2c3e50; }
-        .tags { display: flex; gap: 10px; margin: 10px 0; }
-        .tag { background: #e1e8ed; padding: 2px 10px; border-radius: 15px; font-size: 0.8em; font-weight: bold; }
-        .links { margin-top: 15px; }
-        .btn { text-decoration: none; background: #007bff; color: white; padding: 8px 16px; border-radius: 4px; font-weight: bold; }
-        .btn-secondary { background: #6c757d; margin-left: 10px; }
-        .btn:hover { opacity: 0.9; }
-        iframe { width: 100%; height: 300px; border: none; border-radius: 4px; margin-top: 15px; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; color: #333; max-width: 900px; margin: 0 auto; padding: 20px; background: #f4f4f9; }
+        header { text-align: center; padding: 60px 0; }
+        h1 { color: #2c3e50; margin-bottom: 10px; }
+        .intro { font-size: 1.2em; color: #666; margin-bottom: 40px; }
+        
+        .project-card { background: white; border-radius: 12px; padding: 25px; margin-bottom: 40px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); border: 1px solid #eee; }
+        .project-card h2 { margin-top: 0; color: #2c3e50; border-bottom: 2px solid #007bff; display: inline-block; padding-bottom: 5px; }
+        
+        .tags { display: flex; gap: 8px; margin: 15px 0; flex-wrap: wrap; }
+        .tag { background: #e1e8ed; color: #4b5863; padding: 4px 12px; border-radius: 20px; font-size: 0.85em; font-weight: 600; }
+        
+        .description { margin: 15px 0; color: #555; }
+        
+        .iframe-container { margin: 20px 0; border-radius: 8px; overflow: hidden; border: 1px solid #ddd; }
+        
+        .links { margin-top: 20px; display: flex; gap: 15px; }
+        .btn { text-decoration: none; background: #007bff; color: white; padding: 10px 20px; border-radius: 6px; font-weight: bold; transition: background 0.3s; }
+        .btn:hover { background: #0056b3; }
+        
+        footer { text-align: center; padding: 50px 0; border-top: 1px solid #ddd; color: #888; }
     </style>
 </head>
 <body>
 
 <header>
-    <h1>Mi Portfolio de Desarrollador</h1>
-    <p>Especialista en interfaces interactivas y lógica de JavaScript.</p>
+    <h1>Andrea Lorenzo Ruiz</h1>
+    <p class="intro">Desarrolladora Frontend & Creadora de Experiencias Interactivas</p>
 </header>
 
 <section id="proyectos">
     <div class="project-card">
         <h2>The Unsubscribe Quest</h2>
         <div class="tags">
-            <span class="tag">Vanilla JS</span>
+            <span class="tag">JavaScript (ES6+)</span>
             <span class="tag">DOM Manipulation</span>
-            <span class="tag">Dark UX</span>
+            <span class="tag">UX Design</span>
         </div>
-        <p>Un experimento sobre psicología del usuario y patrones oscuros. Un proceso de baja de suscripción que hace todo lo posible para que no te vayas.</p>
+        <p class="description">Un juego interactivo basado en "Dark UX" que desafía al usuario a cancelar una suscripción a través de múltiples niveles de lógica y frustración creativa.</p>
         
-        <iframe src="https://codepen.io/tu_usuario/embed/tu_id_de_pen?default-tab=result" loading="lazy" allowtransparency="true" allowfullscreen="true"></iframe>
+        <div class="iframe-container">
+            <iframe height="450" style="width: 100%;" scrolling="no" title="Unsubscribe me" src="https://codepen.io/Andrea-Lorenzo-Ruiz/embed/VYKPKyy?default-tab=result" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
+                Ver el Pen <a href="https://codepen.io/Andrea-Lorenzo-Ruiz/pen/VYKPKyy">Unsubscribe me</a> de Andrea Lorenzo Ruiz.
+            </iframe>
+        </div>
 
         <div class="links">
-            <a href="https://codepen.io/tu_usuario/pen/tu_id_de_pen" class="btn" target="_blank">Ver en Full Screen</a>
+            <a href="https://codepen.io/Andrea-Lorenzo-Ruiz/pen/VYKPKyy" class="btn" target="_blank">Ver Código Fuente</a>
         </div>
     </div>
 
     <div class="project-card">
-        <h2>Proyecto CodeSandbox</h2>
+        <h2>La Cueva de Salamanca</h2>
         <div class="tags">
-            <span class="tag">React / JS</span>
-            <span class="tag">CodeSandbox</span>
+            <span class="tag">React.js</span>
+            <span class="tag">Components</span>
+            <span class="tag">State Management</span>
         </div>
-        <p>Descripción de tu segundo proyecto y qué problemas técnicos resolviste en él.</p>
+        <p class="description">Aplicación desarrollada en React que explora la interactividad mediante componentes dinámicos y estados complejos.</p>
         
-        <iframe src="https://codesandbox.io/embed/tu_id_de_sandbox?view=preview" loading="lazy" sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"></iframe>
+        <div class="iframe-container">
+            <iframe src="https://codesandbox.io/embed/x4q4sn?view=preview&module=%2Fsrc%2FApp.js"
+                style="width:100%; height: 500px; border:0; border-radius: 4px; overflow:hidden;"
+                title="la cueva de salamanca"
+                allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
+                sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts">
+            </iframe>
+        </div>
 
         <div class="links">
-            <a href="https://codesandbox.io/s/tu_id_de_sandbox" class="btn" target="_blank">Ver Código</a>
+            <a href="https://codesandbox.io/s/x4q4sn" class="btn" target="_blank">Ver en CodeSandbox</a>
         </div>
     </div>
 </section>
+
+<footer>
+    <p>© 2026 - Andrea Lorenzo Ruiz</p>
+    <div class="links" style="justify-content: center;">
+        <a href="https://github.com/Andrea-Lorenzo-Ruiz" target="_blank" style="color: #333;">GitHub</a>
+    </div>
+</footer>
 
 </body>
 </html>
